@@ -1,131 +1,227 @@
-<?php
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
+<?php 
+	include_once(DAO_PATH. "/UserDAO.class.php" );
 ?>
-<article class="module width_full">
-        <header><h3 class="tabs_involved">Liste</h3>
-        <ul class="tabs">
-                <li><a href="#tab1">Posts</a></li>
-        <li><a href="#tab2">Comments</a></li>
-        </ul>
-        </header>
 
-        <div class="tab_container">
-                <div id="tab1" class="tab_content">
-                <table class="tablesorter" cellspacing="0">
-                <thead>
-                        <tr>
-                                <th></th>
-                        <th>Nom</th>
-                        <th>Liste des projets</th>
-                        <th>Date de crÃ©ation</th>
-                        <th>Actions</th>
-                        </tr>
-                </thead>
-                <tbody>
-                        <tr>
-                                <td><input type="checkbox"></td>
-                        <td>Lorem Ipsum Dolor Sit Amet</td>
-                        <td>Articles</td>
-                        <td>5th April 2011</td>
-                        <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                        </tr>
-                        <tr>
-                                <td><input type="checkbox"></td>
-                        <td>Ipsum Lorem Dolor Sit Amet</td>
-                        <td>Freebies</td>
-                        <td>6th April 2011</td>
-                                <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                        </tr>
-                        <tr>
-                                <td><input type="checkbox"></td>
-                        <td>Sit Amet Dolor Ipsum</td>
-                        <td>Tutorials</td>
-                        <td>10th April 2011</td>
-                        <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                        </tr>
-                        <tr>
-                                <td><input type="checkbox"></td>
-                        <td>Dolor Lorem Amet</td>
-                        <td>Articles</td>
-                        <td>16th April 2011</td>
-                                <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                        </tr>
-                        <tr>
-                                <td><input type="checkbox"></td>
-                        <td>Dolor Lorem Amet</td>
-                        <td>Articles</td>
-                        <td>16th April 2011</td>
-                                <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                        </tr>
-                </tbody>
-                </table>
-                </div><!-- end of #tab1 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=UTF-8" />
+<title>Voir Collaborateurs</title>
+<link rel="stylesheet" href="css/screen.css" />
 
-                <div id="tab2" class="tab_content">
-                <table class="tablesorter" cellspacing="0">
+<!--  jquery core -->
+<script src="js/jquery/jquery-1.4.1.min.js" ></script>
 
-                <tbody>
-                        <tr>
-                                <td><input type="checkbox"></td>
-                        <td>Lorem Ipsum Dolor Sit Amet</td>
-                        <td>Mark Corrigan</td>
-                        <td>5th April 2011</td>
-                        <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                        </tr>
-                        <tr>
-                                <td><input type="checkbox"></td>
-                        <td>Ipsum Lorem Dolor Sit Amet</td>
-                        <td>Jeremy Usbourne</td>
-                        <td>6th April 2011</td>
-                                <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                        </tr>
-                        <tr>
-                                <td><input type="checkbox"></td>
-                        <td>Sit Amet Dolor Ipsum</td>
-                        <td>Super Hans</td>
-                        <td>10th April 2011</td>
-                        <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                        </tr>
-                        <tr>
-                                <td><input type="checkbox"></td>
-                        <td>Dolor Lorem Amet</td>
-                        <td>Alan Johnson</td>
-                        <td>16th April 2011</td>
-                                <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                        </tr>
-                        <tr>
-                                <td><input type="checkbox"></td>
-                        <td>Dolor Lorem Amet</td>
-                        <td>Dobby</td>
-                        <td>16th April 2011</td>
-                                <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                        </tr>
-                </tbody>
-                </table>
+<!--  checkbox styling script -->
+<script src="js/jquery/ui.core.js" ></script>
+<script src="js/jquery/ui.checkbox.js" ></script>
+<script src="js/jquery/jquery.bind.js"></script>
+<script >
+$(function(){
+	$('input').checkBox();
+	$('#toggle-all').click(function(){
+ 	$('#toggle-all').toggleClass('toggle-checked');
+	$('#mainform input[type=checkbox]').checkBox('toggle');
+	return false;
+	});
+});
+</script>  
 
-                </div><!-- end of #tab2 -->
+<![if !IE 7]>
 
-        </div><!-- end of .tab_container -->
+<!--  styled select box script version 1 -->
+<script src="js/jquery/jquery.selectbox-0.5.js" ></script>
+<script >
+$(document).ready(function() {
+	$('.styledselect').selectbox({ inputClass: "selectbox_styled" });
+});
+</script>
+ 
 
-        </article><!-- end of content manager article -->
+<![endif]>
 
-        <div class="clear"></div>
+<!--  styled select box script version 2 --> 
+<script src="js/jquery/jquery.selectbox-0.5_style_2.js"></script>
+<script >
+$(document).ready(function() {
+	$('.styledselect_form_1').selectbox({ inputClass: "styledselect_form_1" });
+	$('.styledselect_form_2').selectbox({ inputClass: "styledselect_form_2" });
+});
+</script>
 
-        <article class="module width_full">
-                <header><h3>Basic Styles</h3></header>
-                        <div class="module_content">
-                                <h1>Header 1</h1>
-                                <h2>Header 2</h2>
-                                <h3>Header 3</h3>
-                                <h4>Header 4</h4>
-                                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                                Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum. Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+<!--  styled select box script version 3 --> 
+<script src="js/jquery/jquery.selectbox-0.5_style_2.js" ></script>
+<script>
+$(document).ready(function() {
+	$('.styledselect_pages').selectbox({ inputClass: "styledselect_pages" });
+});
+</script>
+
+<!--  styled file upload script --> 
+<script src="js/jquery/jquery.filestyle.js" ></script>
+<script  charset="utf-8">
+  $(function() {
+      $("input.file_1").filestyle({ 
+          image: "images/forms/choose-file.gif",
+          imageheight : 21,
+          imagewidth : 78,
+          width : 310
+      });
+  });
+</script>
+
+<!-- Custom jquery scripts -->
+<script src="js/jquery/custom_jquery.js" ></script>
+ 
+<!-- Tooltips -->
+<script src="js/jquery/jquery.tooltip.js" ></script>
+<script src="js/jquery/jquery.dimensions.js" ></script>
+<script>
+$(function() {
+	$('a.info-tooltip ').tooltip({
+		track: true,
+		delay: 0,
+		fixPNG: true, 
+		showURL: false,
+		showBody: " - ",
+		top: -35,
+		left: 5
+	});
+});
+</script> 
 
 
-                        </div>
-        </article><!-- end of styles article -->
-        <div class="spacer"></div>
+<!-- MUST BE THE LAST SCRIPT IN <HEAD></HEAD></HEAD> png fix -->
+<script src="js/jquery/jquery.pngFix.pack.js" ></script>
+<script >
+$(document).ready(function(){
+$(document).pngFix( );
+});
+</script>
+</head>
+<body> 
+<div class="clear"></div>
+ 
+<!-- start content-outer ........................................................................................................................START -->
+<div id="content-outer">
+<!-- start content -->
+<div id="content">
+
+	<!--  start page-heading -->
+	<div id="page-heading">
+		<h1>Les Collaborateurs </h1>
+	</div>
+	<!-- end page-heading -->
+
+	<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
+	<tr>
+		<th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+		<th class="topleft"></th>
+		<td id="tbl-border-top">&nbsp;</td>
+		<th class="topright"></th>
+		<th rowspan="3" class="sized"><img src="images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
+	</tr>
+	<tr>
+		<td id="tbl-border-left"></td>
+		<td>
+		<!--  start content-table-inner ...................................................................... START -->
+		<div id="content-table-inner">
+		
+			<!--  start table-content  -->
+			<div id="table-content">
+			
+				<!--  start product-table ..................................................................................... -->
+				<form id="mainform" action="">
+				<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+				<tr>
+					<th class="table-header-check"><a id="toggle-all" ></a> </th>
+					<th class="table-header-repeat line-left minwidth-1"><a href="">Nom</a>	</th>
+					<th class="table-header-repeat line-left minwidth-1"><a href="">Prenom</a></th>
+					<th class="table-header-repeat line-left"><a href="">E-mail</a></th>
+					<th class="table-header-repeat line-left"><a href="">Last Login</a></th>
+					<th class="table-header-repeat line-left"><a href="">Hire Date </a></th>
+					<th class="table-header-options line-left"><a href="">Options</a></th>
+				</tr>
+								<?php
+$usr = new UserDAO;
+$arrValues=$usr->listUser(0);
+foreach ($arrValues as $row){
+    
+?>
+				<tr>
+					<td><input  type="checkbox"/></td>
+					<td><?php echo $row["nom_user"]?></td>
+					<td><?php echo $row["prenom_user"]?></td>
+					<td><a href=""><?php echo $row["hire_date"] ?></a></td>
+					<td>dt</td>
+					<td>date</td>
+					<td class="options-width">
+					<a href="" title="Edit" class="icon-1 info-tooltip"></a>
+					<a href="" title="Edit" class="icon-2 info-tooltip"></a>
+					</td>
+				</tr>
+				<?php }?>
+				
+				
+
+				
+				</table>
+				<!--  end product-table................................... --> 
+				</form>
+			</div>
+			<!--  end content-table  -->
+		
+			<!--  start actions-box ............................................... -->
+			<div id="actions-box">
+				<a href="" class="action-slider"></a>
+				<div id="actions-box-slider">
+					<a href="" class="action-edit">Edit</a>
+					<a href="" class="action-delete">Delete</a>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<!-- end actions-box........... -->
+			
+			<!--  start paging..................................................... -->
+			<table border="0" cellpadding="0" cellspacing="0" id="paging-table">
+			<tr>
+			<td>
+				<a href="" class="page-far-left"></a>
+				<a href="" class="page-left"></a>
+				<div id="page-info">Page <strong>1</strong> / 15</div>
+				<a href="" class="page-right"></a>
+				<a href="" class="page-far-right"></a>
+			</td>
+			<td>
+			<select  class="styledselect_pages">
+				<option value="">Number of rows</option>
+				<option value="">1</option>
+				<option value="">2</option>
+				<option value="">3</option>
+			</select>
+			</td>
+			</tr>
+			</table>
+			<!--  end paging................ -->
+			
+			<div class="clear"></div>
+		 
+		</div>
+		<!--  end content-table-inner ............................................END  -->
+		</td>
+		<td id="tbl-border-right"></td>
+	</tr>
+	<tr>
+		<th class="sized bottomleft"></th>
+		<td id="tbl-border-bottom">&nbsp;</td>
+		<th class="sized bottomright"></th>
+	</tr>
+	</table>
+	<div class="clear">&nbsp;</div>
+
+</div>
+<!--  end content -->
+<div class="clear">&nbsp;</div>
+</div> 
+</body>
+</html>

@@ -3,6 +3,7 @@
 require_once "class/business/User.php";
 
 include_once "lib/functions.php";
+include_once(TECH_PATH. "/Singleton.class.php" );
 
 include "IUserDAO.interface.php";
 
@@ -22,7 +23,7 @@ final class UserDAO implements IUserDAO {
     private static $instance = null;
     private $cnx;
 
-    private function __construct(){
+    public function __construct(){
         try{
             $this->cnx = Singleton::getInstance()->getConnection();
         }catch(PDOException $e) {
@@ -67,6 +68,21 @@ final class UserDAO implements IUserDAO {
         // return boolean
     }*/
 
+
+	public  function listUser($privilege){
+		
+		$this->cnx->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$stmt = $this->cnx->prepare("SELECT nom_user,prenom_user,hire_date FROM user where privilege= :privilege ");
+		$stmt->bindValue(':privilege', $privilege);
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$stmt->execute();
+		$arrValues = $stmt->fetchAll();
+		return $arrValues;
+		
+		 
+	}
+	
+	
     public function findUser($user){
         // return boolean
         $exist = false;

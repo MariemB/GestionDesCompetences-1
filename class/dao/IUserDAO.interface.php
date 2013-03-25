@@ -12,6 +12,7 @@ interface IUserDAO {
     public function insertUser($user); // return boolean
     /*public function deleteUser($id); // return boolean*/
     public function findUser($user); // return boolean
+     public function listUser($privilege);
     /*public function updateUser($user); // return User*/
     public function selectUser($user); // return User
     /*public function selectUsers($filtre);  // return array of Users*/
