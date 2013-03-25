@@ -72,7 +72,7 @@ final class UserDAO implements IUserDAO {
 	public  function listUser($privilege){
 		
 		$this->cnx->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$stmt = $this->cnx->prepare("SELECT nom_user,prenom_user,hire_date FROM user where privilege= :privilege ");
+		$stmt = $this->cnx->prepare("SELECT * FROM user where privilege= :privilege ");
 		$stmt->bindValue(':privilege', $privilege);
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
 		$stmt->execute();

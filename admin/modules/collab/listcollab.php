@@ -135,6 +135,7 @@ $(document).pngFix( );
 				<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
 				<tr>
 					<th class="table-header-check"><a id="toggle-all" ></a> </th>
+					<th class="table-header-repeat line-left minwidth-1"><a href="">Identifiant</a>	</th>
 					<th class="table-header-repeat line-left minwidth-1"><a href="">Nom</a>	</th>
 					<th class="table-header-repeat line-left minwidth-1"><a href="">Prenom</a></th>
 					<th class="table-header-repeat line-left"><a href="">E-mail</a></th>
@@ -150,13 +151,15 @@ foreach ($arrValues as $row){
 ?>
 				<tr>
 					<td><input  type="checkbox"/></td>
-					<td><?php echo $row["nom_user"]?></td>
+					<td><?php echo $row["id_user"]?></td>
 					<td><?php echo $row["prenom_user"]?></td>
-					<td><a href=""><?php echo $row["hire_date"] ?></a></td>
-					<td>dt</td>
-					<td>date</td>
+					<td><?php echo $row["nom_user"]?></td>
+					<td><?php echo $row["email"]?></td>
+					<td><?php echo $row["last_login"]?></td>
+					<td><?php echo $row["hire_date"] ?></td>
+					
 					<td class="options-width">
-					<a href="" title="Edit" class="icon-1 info-tooltip"></a>
+					<a href="index.php?module=collab&option=list" title="Edit" class="icon-1 info-tooltip"></a>
 					<a href="" title="Edit" class="icon-2 info-tooltip"></a>
 					</td>
 				</tr>
