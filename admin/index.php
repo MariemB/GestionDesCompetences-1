@@ -178,7 +178,7 @@
                                             echo '<div class="breadcrumb_divider"></div> <a href="javascript:void(0);" class="current">Add Competence</a>';
                                             break;
                                         case "list":
-                                            echo '<div class="breadcrumb_divider"></div> <a href="javascript:void(0);" class="current">List Competences</a>';
+                                            include_once 'modules/competences/listeCompetence.php';
                                             break;
                                         case "edit":
                                             echo '<div class="breadcrumb_divider"></div> <a href="javascript:void(0);" class="current">Edite Competence</a>';
