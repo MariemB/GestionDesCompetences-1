@@ -159,7 +159,7 @@ foreach ($arrValues as $row){
 					<td><?php echo $row["hire_date"] ?></td>
 					
 					<td class="options-width">
-					<a href="index.php?module=collab&option=list" title="Edit" class="icon-1 info-tooltip"></a>
+					<a href="index.php?module=collab&option=edit" title="Edit" class="icon-1 info-tooltip"></a>
 					<a href="" title="Edit" class="icon-2 info-tooltip"></a>
 					</td>
 				</tr>

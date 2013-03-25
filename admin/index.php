@@ -147,7 +147,7 @@
                                             include_once 'modules/collab/listcollab.php';
                                             break;
                                         case "edit":
-                                            echo '<div class="breadcrumb_divider"></div> <a href="javascript:void(0);" class="current">Edit Collaborateur</a>';
+                                            include_once 'modules/collab/forms/editcollab.html';
                                             break;
                                         default :
                                             break;
