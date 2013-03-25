@@ -147,7 +147,7 @@
                                             include_once 'modules/collab/listcollab.php';
                                             break;
                                         case "edit":
-                                            include_once 'modules/collab/forms/editcollab.html';
+                                            include_once 'modules/collab/forms/editcollab.php';
                                             break;
                                         default :
                                             break;

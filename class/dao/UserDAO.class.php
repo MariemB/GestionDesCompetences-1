@@ -82,6 +82,19 @@ final class UserDAO implements IUserDAO {
 		 
 	}
 	
+	public  function getUserInfo($id){
+		
+		$this->cnx->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$stmt = $this->cnx->prepare("SELECT * FROM user where id_user= :id ");
+		$stmt->bindValue(':id', $id);
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$stmt->execute();
+		$arrValues = $stmt->fetchAll();
+		return $arrValues;
+		
+		 
+	}
+	
 	
     public function findUser($user){
         // return boolean
